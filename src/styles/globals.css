@@ -87,7 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #fff;
+  background: #d1e8d8;
 }
 
 a {
@@ -99,4 +99,8 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.center {
+  text-align: center;
 }
