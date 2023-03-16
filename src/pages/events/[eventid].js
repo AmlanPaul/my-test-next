@@ -5,13 +5,43 @@ import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
 import { Fragment } from "react";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 function EventDetailsPage() {
   const routes = useRouter();
   const eventId = routes.query.eventid;
+  const [isLoading,setIsLoading] = useState(true);
+  const [data,setData] = useState([]);
+
+  useEffect(() =>{
+    fetch(
+      "https://nextjsevent-project-default-rtdb.firebaseio.com/events.json"
+    ).then(res =>{
+      return res.json();
+    }).then((data) =>{
+      setIsLoading(false);
+
+      const events =[];
+      for (const key in data) {
+        const event = {
+          ...data[key]
+        }
+
+        events.push(event);
+      }
+      setData(events);
+    })
+  }, [] )
+
+  function getEventById(id) {
+    return data.find((event) => event.id === id);
+  }
 
   const event = getEventById(eventId);
-  if (!event) {
+  if(isLoading) {
+    return <> Loading... !</>;
+  }
+  if (!event && !isLoading) {
     return <> No event Found !</>;
   }
   return (
