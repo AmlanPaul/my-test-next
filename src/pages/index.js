@@ -1,12 +1,14 @@
-import { getFeaturedEvents } from "../../dummy-data";
 import EventList from "../components/event-list";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const featureEvents = getFeaturedEvents();
   const [isLoading,setIsLoading] = useState(true);
   const [data,setData] = useState([]);
+
+  function getFeaturedEvents(DUMMY_EVENTS) {
+    return DUMMY_EVENTS.filter((event) => event.isFeatured);
+  }
 
   useEffect(() =>{
     fetch(
@@ -31,6 +33,7 @@ export default function Home() {
     return <> <p className="center"> Loading ...</p></>
   }
   
+  const featuredEvents = getFeaturedEvents(data);
   return (
     <>
       <Head>
@@ -40,7 +43,7 @@ export default function Home() {
           content="All the featured events for home page - Next Js"
         />
       </Head>
-      <EventList iteams={data} />
+      <EventList iteams={featuredEvents} />
     </>
   );
 }
