@@ -8,7 +8,9 @@ function Logout(props) {
   function clickHandeler(event) {
     deleteCookie("isLogin");
     deleteCookie("idToken");
-    router.push("/");
+    setTimeout(() => {
+      router.push("/");
+    }, 500);
   }
   return (
     <Fragment>
