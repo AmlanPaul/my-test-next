@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import Logout from "../Logout/logout";
 
 function MainHeader() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,6 +43,9 @@ function MainHeader() {
             <Link className="nav-link" href="/events">
               All Events
             </Link>
+          </li>
+          <li className="nav-item">
+            <Logout />
           </li>
         </ul>
       </div>

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import LoginForm from "../components/Login/login-form";
 import classes from "../styles/login.module.css";
 
@@ -18,9 +19,10 @@ const Home = () => {
           <LoginForm />
 
           <div id={classes.formFooter}>
-            <a className={classes.underlineHover} href="#">
-              Forgot Password?
-            </a>
+            Doesnt have an account ? {" "}
+            <Link className={classes.underlineHover} href="/sign-up">
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>
