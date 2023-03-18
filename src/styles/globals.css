@@ -215,3 +215,7 @@ nav.navbar {
   padding: 5px 15px;
   background-color: #03be9f !important;
 }
+
+nav.navbar .nav-link {
+  cursor: pointer;
+}
