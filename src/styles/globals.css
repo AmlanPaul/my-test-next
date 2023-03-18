@@ -207,3 +207,8 @@ input[type="password"]:placeholder {
 *:focus {
   outline: none;
 }
+
+nav.navbar {
+  padding: 5px 15px;
+  background-color: #03be9f !important;
+}

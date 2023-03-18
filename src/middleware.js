@@ -2,16 +2,18 @@
 import { NextResponse } from 'next/server'
 
 // This function can be marked `async` if using `await` inside
-export function middleware(req) {
-  console.log(req.cookies.get('isLogin'));
+export default function middleware(req) { 
   let verify =req.cookies.get('isLogin')
-  if(!verify) {
-    console.log("Please login");
+  let url = req.url;
+  if(!verify && !url.includes('login')) {
     return NextResponse.redirect(new URL('/login', req.url))
+  }
+  if(verify && url.includes('login')) {
+    return NextResponse.redirect(new URL('/', req.url))
   }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/events/:path*', '/events', '/'],
+  matcher: ['/events/:path*', '/events', '/','/login'],
 }
