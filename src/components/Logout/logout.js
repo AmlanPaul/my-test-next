@@ -9,7 +9,7 @@ function Logout(props) {
     deleteCookie("isLogin");
     deleteCookie("idToken");
     setTimeout(() => {
-      router.push("/");
+      router.push("/login");
     }, 500);
   }
   return (
