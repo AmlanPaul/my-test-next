@@ -8,11 +8,10 @@ function Logout(props) {
   function clickHandeler(event) {
     deleteCookie("isLogin");
     deleteCookie("idToken");
-    router.push("/");
   }
   return (
     <Fragment>
-      <Link href="#" onClick={clickHandeler} className="nav-link">
+      <Link href="/" onClick={clickHandeler} className="nav-link">
         Logout
       </Link>
     </Fragment>
