@@ -6,16 +6,19 @@ function MainHeader() {
   const [isVisible, setIsVisible] = useState(false);
   console.log(isVisible);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" href="/">
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light"
+    >
+      <Link className="navbar-brand" href="/" onClick={() => setIsVisible(false)}>
         <img
           src="/logo.png"
           width="30"
           height="30"
           className="d-inline-block align-top"
           alt=""
-        /> { ` `}
-         Event Demo
+        />{" "}
+        {` `}
+        Event Demo
       </Link>
       <button
         className="navbar-toggler"
@@ -32,6 +35,7 @@ function MainHeader() {
       <div
         className={isVisible ? "navbar-collapse" : "collapse  navbar-collapse"}
         id="navbarNav"
+        onClick={() => setIsVisible(false)}
       >
         <ul className="navbar-nav">
           <li className="nav-item active">
