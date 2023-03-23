@@ -43,6 +43,9 @@ export default function Home() {
           content="All the featured events for home page - Next Js"
         />
       </Head>
+      <div id="result" data-testid="result">
+        <p className="center">Featured Events</p>
+        </div>
       <EventList iteams={featuredEvents} />
     </>
   );
